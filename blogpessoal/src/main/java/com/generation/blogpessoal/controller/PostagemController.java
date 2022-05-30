@@ -19,6 +19,7 @@ import com.generation.blogpessoal.model.Postagem;
 import com.generation.blogpessoal.repository.PostagemRepository;
 
 // indica que é uma classe controladora e qual o endpoint
+
 @RestController
 @RequestMapping("/postagens")
 
@@ -54,9 +55,9 @@ public class PostagemController {
 	
 	 //Criando select pelo título
 	 
-	 @GetMapping("/titulo/{titulo}") 
-	 public ResponseEntity<List<Postagem>>pesquisaTitulo(@PathVariable String titulo){ 
-		 return ResponseEntity.ok(repository.findAllByTituloContainingIgnoreCase(titulo)); 
+	@GetMapping("/titulo/{titulo}")
+	public ResponseEntity<List<Postagem>> GetByTitulo(@PathVariable String titulo){
+		return ResponseEntity.ok(repository.findAllByTituloContainingIgnoreCase(titulo));
 	}
 	 
 
