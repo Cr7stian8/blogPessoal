@@ -51,13 +51,14 @@ public class PostagemController {
 				.orElse(ResponseEntity.notFound().build());
 	}
 
-	/*
-	 * //Criando select pelo título
-	 * 
-	 * @GetMapping("/titulo/{titulo}") public ResponseEntity<List<Postagem>>
-	 * pesquisaTitulo(@PathVariable String titulo){ return
-	 * ResponseEntity.ok(repository.save(titulo)); }
-	 */
+	
+	 //Criando select pelo título
+	 
+	 @GetMapping("/titulo/{titulo}") 
+	 public ResponseEntity<List<Postagem>>pesquisaTitulo(@PathVariable String titulo){ 
+		 return ResponseEntity.ok(repository.findAllByTituloContainingIgnoreCase(titulo)); 
+	}
+	 
 
 	// Método Post usado para inserir dados
 	@PostMapping
