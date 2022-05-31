@@ -52,14 +52,11 @@ public class PostagemController {
 				.orElse(ResponseEntity.notFound().build());
 	}
 
-	
-	 //Criando select pelo título
-	 
+	// Criando select pelo título
 	@GetMapping("/titulo/{titulo}")
-	public ResponseEntity<List<Postagem>> GetByTitulo(@PathVariable String titulo){
+	public ResponseEntity<List<Postagem>> GetByTitulo(@PathVariable String titulo) {
 		return ResponseEntity.ok(repository.findAllByTituloContainingIgnoreCase(titulo));
 	}
-	 
 
 	// Método Post usado para inserir dados
 	@PostMapping
@@ -72,7 +69,7 @@ public class PostagemController {
 	public ResponseEntity<Postagem> atualizaPostagem(@RequestBody Postagem postagem) {
 		return ResponseEntity.status(HttpStatus.OK).body(repository.save(postagem));
 	}
-	
+
 	// Método Delete
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
