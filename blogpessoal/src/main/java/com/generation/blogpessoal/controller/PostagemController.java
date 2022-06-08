@@ -2,6 +2,8 @@ package com.generation.blogpessoal.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +21,6 @@ import com.generation.blogpessoal.model.Postagem;
 import com.generation.blogpessoal.repository.PostagemRepository;
 
 // indica que é uma classe controladora e qual o endpoint
-
 @RestController
 @RequestMapping("/postagens")
 
@@ -34,13 +35,14 @@ public class PostagemController {
 	// Criando "select all" para usar no insomnia
 	@GetMapping
 	public ResponseEntity<List<Postagem>> buscaPostagem() {
+		
 		// Retornando Status e todos os dados das postagens do db
 		return ResponseEntity.ok(repository.findAll());
 	}
 
 	// Criando "select pelo id"
 	@GetMapping("/{id}")
-	public ResponseEntity<Postagem> buscaPostagemPorId(@PathVariable Long id) {
+	public ResponseEntity<Postagem> buscaPostagemPorId(@Valid @PathVariable Long id) {
 
 		// Retornando postagens pelo id
 		return repository.findById(id)
@@ -54,7 +56,7 @@ public class PostagemController {
 
 	// Criando select pelo título
 	@GetMapping("/titulo/{titulo}")
-	public ResponseEntity<List<Postagem>> GetByTitulo(@PathVariable String titulo) {
+	public ResponseEntity<List<Postagem>> GetByTitulo(@Valid @PathVariable String titulo) {
 		return ResponseEntity.ok(repository.findAllByTituloContainingIgnoreCase(titulo));
 	}
 
@@ -72,7 +74,7 @@ public class PostagemController {
 
 	// Método Delete
 	@DeleteMapping("/{id}")
-	public void delete(@PathVariable Long id) {
+	public void delete(@Valid @PathVariable Long id) {
 		repository.deleteById(id);
 	}
 }
