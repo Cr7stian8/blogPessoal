@@ -20,7 +20,7 @@ Site utilizado para iniciar a aplicação:
 O SGDB(Sistema de gerenciamento de base de dados) utilizado foi o MySQL
 <br><br>
 Informações para utilizar o banco de dados especificadas nas propriedades:
-<br>
+<br><br>
 Usuario: root
 <br>
 Senha: root
