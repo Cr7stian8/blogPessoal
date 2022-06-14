@@ -4,6 +4,9 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import com.generation.blogpessoal.model.Tema;
+import com.generation.blogpessoal.repository.TemaRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,70 +20,57 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.generation.blogpessoal.model.Tema;
-import com.generation.blogpessoal.repository.TemaRepository;
-
-//Indicando que é uma classe controller e o endpoint
 @RestController
-@RequestMapping("/tema")
-
-//Permitindo requisições de outras portas
+@RequestMapping("/temas")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-
 public class TemaController {
 
-	// Adição da injeção de dependêndencia
 	@Autowired
-	private TemaRepository repository;
+	private TemaRepository temaRepository;
 
-	// Criando "Select" do db
 	@GetMapping
-	public ResponseEntity<List<Tema>> buscandoTema() {
-		return ResponseEntity.ok(repository.findAll());
+	public ResponseEntity<List<Tema>> getAll() {
+		return ResponseEntity.ok(temaRepository.findAll());
+
 	}
 
-	// Criando "select pelo id"
 	@GetMapping("/{id}")
 	public ResponseEntity<Tema> getById(@PathVariable Long id) {
+		return temaRepository.findById(id)
+			.map(resposta -> ResponseEntity.ok(resposta))
+			.orElse(ResponseEntity.notFound().build());
+	}
 
-		// Retornando postagens pelo id
-		return repository.findById(id)
+	@GetMapping("/descricao/{descricao}")
+	public ResponseEntity<List<Tema>> getByDescricao(@PathVariable String descricao) {
+		return ResponseEntity.ok(temaRepository.findAllByDescricaoContainingIgnoreCase(descricao));
+	}
 
-				// -------- LAMBDA FUNCTION --------- //
+	@PostMapping
+	public ResponseEntity<Tema> postTema(@Valid @RequestBody Tema tema) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(temaRepository.save(tema));
+	}
 
-				// Caso encontre retorne ok e as postagens encontradas
-				.map(resposta -> ResponseEntity.ok(resposta))
+	@PutMapping
+	public ResponseEntity<Tema> putTema(@Valid @RequestBody Tema tema) {
+					
+		return temaRepository.findById(tema.getId())
+				.map(resposta -> {
+					return ResponseEntity.ok().body(temaRepository.save(tema));
+				})
+				.orElse(ResponseEntity.notFound().build());
 
-				// caso não encontre retorne a mensagem "notFound"
+	}
+
+	@DeleteMapping("/{id}")
+	public ResponseEntity<?> deletePostagem(@PathVariable Long id) {
+		
+		return temaRepository.findById(id)
+				.map(resposta -> {
+					temaRepository.deleteById(id);
+					return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+				})
 				.orElse(ResponseEntity.notFound().build());
 	}
 
-	// Criando select pelo título
-	@GetMapping("/nome/{nome}")
-
-	// Usamos <List<Tema>> quando o retorno puder ser mais do que uma linha da
-	// tabela
-	// Usamos <Tema> quando o retorno for obrigatoriamente uma linha da tabela
-	public ResponseEntity<List<Tema>> getByName(@PathVariable String nome) {
-		return ResponseEntity.ok(repository.findAllByDescricaoContainingIgnoreCase(nome));
-	}
-
-	// Criando método Post
-	@PostMapping
-	public ResponseEntity<Tema> AdicionaTema(@Valid @RequestBody Tema tema) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(tema));
-	}
-
-	// Criando método Put
-	@PutMapping
-	public ResponseEntity<Tema> atualizaTema(@Valid @RequestBody Tema tema) {
-		return ResponseEntity.ok(repository.save(tema));
-	}
-
-	// Criando método delete
-	// O método Delete não tem retorno, portanto, é uma função void
-	@DeleteMapping("/{id}")
-	public void deletaTema(@PathVariable Long id) {
-		repository.deleteById(id);
-	}
 }

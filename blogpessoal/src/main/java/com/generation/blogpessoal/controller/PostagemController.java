@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import com.generation.blogpessoal.model.Postagem;
+import com.generation.blogpessoal.repository.PostagemRepository;
+import com.generation.blogpessoal.repository.TemaRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,64 +21,69 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.generation.blogpessoal.model.Postagem;
-import com.generation.blogpessoal.repository.PostagemRepository;
-
-// indica que é uma classe controladora e qual o endpoint
 @RestController
-@RequestMapping("/postagens")
-
-//permite que requisições de outras portas sejam aceitas na minha aplicação
-@CrossOrigin("*")
-
+@RequestMapping("/postagens") 
+@CrossOrigin(origins = "*", allowedHeaders = "*") 
 public class PostagemController {
-	// transfere a responsabilidade de manipular o db para o PostagemRepository
+	
+	@Autowired 
+	private PostagemRepository postagemRepository;
+	
 	@Autowired
-	private PostagemRepository repository;
-
-	// Criando "select all" para usar no insomnia
+	private TemaRepository temaRepository;
+	
 	@GetMapping
-	public ResponseEntity<List<Postagem>> buscaPostagem() {
-		
-		// Retornando Status e todos os dados das postagens do db
-		return ResponseEntity.ok(repository.findAll());
+	public ResponseEntity<List<Postagem>> getAll (){
+		return ResponseEntity.ok(postagemRepository.findAll());
 	}
 
-	// Criando "select pelo id"
 	@GetMapping("/{id}")
-	public ResponseEntity<Postagem> buscaPostagemPorId(@Valid @PathVariable Long id) {
+	public ResponseEntity<Postagem> getById(@PathVariable Long id) {
+		return postagemRepository.findById(id)
+			.map(resposta -> ResponseEntity.ok(resposta))
+			.orElse(ResponseEntity.notFound().build());
+	}
 
-		// Retornando postagens pelo id
-		return repository.findById(id)
+	@GetMapping("/titulo/{titulo}")
+	public ResponseEntity<List<Postagem>> getByTitulo(@PathVariable String titulo){
+		return ResponseEntity.ok(postagemRepository.findAllByTituloContainingIgnoreCase(titulo));
+	}
 
-				// Caso encontre retorne ok e as postagens encontradas
-				.map(resposta -> ResponseEntity.ok(resposta))
+	@PostMapping
+	public ResponseEntity<Postagem> postPostagem (@Valid @RequestBody Postagem postagem){
 
-				// caso não encontre retorne a mensagem "notFound"
+		if (temaRepository.existsById(postagem.getTema().getId()))
+			return ResponseEntity.status(HttpStatus.CREATED).body(postagemRepository.save(postagem));
+	
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+	
+	}
+	
+	@PutMapping
+	public ResponseEntity<Postagem> putPostagem (@Valid @RequestBody Postagem postagem){
+		
+			if (postagemRepository.existsById(postagem.getId())){
+			
+			if (temaRepository.existsById(postagem.getTema().getId()))
+				return ResponseEntity.status(HttpStatus.OK)
+						.body(postagemRepository.save(postagem));
+			
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+			
+		}			
+			
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+	}
+			
+	@DeleteMapping("/{id}")
+	public ResponseEntity<?> deletePostagem(@PathVariable Long id) {
+		
+		return postagemRepository.findById(id)
+				.map(resposta -> {
+					postagemRepository.deleteById(id);
+					return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+				})
 				.orElse(ResponseEntity.notFound().build());
 	}
-
-	// Criando select pelo título
-	@GetMapping("/titulo/{titulo}")
-	public ResponseEntity<List<Postagem>> GetByTitulo(@Valid @PathVariable String titulo) {
-		return ResponseEntity.ok(repository.findAllByTituloContainingIgnoreCase(titulo));
-	}
-
-	// Método Post usado para inserir dados
-	@PostMapping
-	public ResponseEntity<Postagem> adicionaPostagem(@RequestBody Postagem postagem) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(postagem));
-	}
-
-	// Método Put usado para inserir dados
-	@PutMapping
-	public ResponseEntity<Postagem> atualizaPostagem(@RequestBody Postagem postagem) {
-		return ResponseEntity.status(HttpStatus.OK).body(repository.save(postagem));
-	}
-
-	// Método Delete
-	@DeleteMapping("/{id}")
-	public void delete(@Valid @PathVariable Long id) {
-		repository.deleteById(id);
-	}
+	
 }

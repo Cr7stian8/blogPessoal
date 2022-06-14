@@ -1,17 +1,37 @@
 package com.generation.blogpessoal.model;
-
 public class UsuarioLogin {
 
-	// Criando atributos
+	private Long id;
+
 	private String nome;
 
 	private String usuario;
 
 	private String senha;
 
+	private String foto;
+
 	private String token;
 
-	// Criando getters and setters
+	public UsuarioLogin(Long id, String nome, String usuario, String senha, String foto, String token) {
+		this.id = id;
+		this.nome = nome;
+		this.usuario = usuario;
+		this.senha = senha;
+		this.foto = foto;
+		this.token = token;
+	}
+
+	public UsuarioLogin() {	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public String getNome() {
 		return nome;
 	}
@@ -22,6 +42,14 @@ public class UsuarioLogin {
 
 	public String getUsuario() {
 		return usuario;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
 	}
 
 	public void setUsuario(String usuario) {
@@ -36,11 +64,12 @@ public class UsuarioLogin {
 		this.senha = senha;
 	}
 
-	public String getToken() {
-		return token;
+	public String getFoto() {
+		return foto;
 	}
 
-	public void setToken(String token) {
-		this.token = token;
-	}
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}	
+	
 }

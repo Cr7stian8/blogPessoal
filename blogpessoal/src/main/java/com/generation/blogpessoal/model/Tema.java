@@ -1,6 +1,3 @@
-
-// Model você cria tabelas
-
 package com.generation.blogpessoal.model;
 
 import java.util.List;
@@ -12,52 +9,46 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-//Criando tabela no banco de dados
 @Entity
-@Table(name = "tb_tema")
-public class Tema {
+@Table(name = "tb_temas")
+public class Tema{
+	    
+	    @Id	
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
+		private Long id;
+		
+		@NotBlank(message = "O atributo Descrição é obrigatório e não pode conter espaços em branco")
+		private String descricao;
+		
+		@OneToMany(mappedBy = "tema", cascade = CascadeType.REMOVE)
+		@JsonIgnoreProperties("tema")
+		private List<Postagem> postagem;
+		
+		public Long getId() {
+			return id;
+		}
 
-	// Criando chave primária e auto_increment
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+		public void setId(Long id) {
+			this.id = id;
+		}
 
-	// Criando coluna da tabela
-	@NotNull
-	private String descricao;
-	
-	// Criando chave externa
-	@OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("tema")
-	private List<Postagem> postagem;
+		public String getDescricao() {
+			return descricao;
+		}
 
-	// Gerando getters and setters
-	public Long getId() {
-		return id;
-	}
+		public void setDescricao(String descricao) {
+			this.descricao = descricao;
+		}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+		public List<Postagem> getPostagem() {
+			return postagem;
+		}
 
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-	public List<Postagem> getPostagem() {
-		return postagem;
-	}
-
-	public void setPostagem(List<Postagem> postagem) {
-		this.postagem = postagem;
-	}
-
+		public void setPostagem(List<Postagem> postagem) {
+			this.postagem = postagem;
+		}
+		
 }
