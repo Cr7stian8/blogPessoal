@@ -1,5 +1,5 @@
 # blogPessoal
-Back-End do blog Pessoal desenvolvido durante o bootcamp da generation
+Criação da API do blog Pessoal desenvolvido durante o bootcamp da generation
 <br>
 <h2> Informações ! </h2>
 <br>
