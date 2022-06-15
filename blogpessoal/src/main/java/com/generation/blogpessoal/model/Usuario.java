@@ -44,7 +44,7 @@ public class Usuario {
 	@JsonIgnoreProperties("usuario")
 	private List<Postagem> postagem;
 
-	/** Métodos Construtores */
+	/* Métodos Construtores */
 	
 	public Usuario(Long id, String nome, String usuario, String senha, String foto) {
 		this.id = id;
