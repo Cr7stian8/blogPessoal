@@ -1,3 +1,12 @@
-h1{
-    color: blueviolet;
+.titulo{
+    color: purple;
+    text-align: center;
+}
+
+.imagens{
+    width: 800px;
+    height: 500px;
+    /* Centralizando imagem */
+    display: block;
+    margin: 0 auto;
 }
