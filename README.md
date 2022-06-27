@@ -1,7 +1,7 @@
 # blogPessoal
 Criação da API do blog Pessoal desenvolvido durante o bootcamp da generation
 <br>
-<h2> Informações ! </h2>
+<h2> Backend ! </h2>
 <br>
 Esse repostiório foi criado com o intuíto de desenvolver o backend de uma aplicação utilizando o framework Spring
 <br>
@@ -27,3 +27,7 @@ Senha: root
 <br>
 <br>
 Versão do java utilizada: 17
+
+## Frontend 
+
+<p>O frontend da aplicação foi construído utilizando react</p>
