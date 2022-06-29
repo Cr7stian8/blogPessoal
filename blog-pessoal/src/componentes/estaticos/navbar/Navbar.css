@@ -1,0 +1,13 @@
+.text-decoration-none{
+    text-decoration: none;
+}
+
+.cursor{
+    cursor: pointer;
+    color: white;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+}
