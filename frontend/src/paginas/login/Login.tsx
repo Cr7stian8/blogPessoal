@@ -1,9 +1,51 @@
-import React from 'react'
+import React, { ChangeEvent, useState, useEffect } from 'react'
 import { Box, Grid, Typography, TextField, Button } from '@material-ui/core'
-import { Link } from 'react-router-dom'
+import useLocalStorage from 'react-use-localstorage'
+import { Link, useNavigate } from 'react-router-dom'
+import { api } from '../../services/Service'
 import './Login.css'
+import UserLogin from '../../models/UserLogin'
 
 function Login() {
+    let navigate = useNavigate();
+    const[token, setToken] = useLocalStorage('token');
+    
+    const [userLogin, setUserLogin] = useState<UserLogin>(
+        {
+            id: 0,
+            usuario: "",
+            senha: "",
+            token: ""
+        }
+    )
+
+    function updatedModel(e: ChangeEvent<HTMLInputElement>) {
+        setUserLogin({
+            ...userLogin,
+            // dado que quer pegar do usuário : dado digitado pelo usuario
+            [e.target.name]: e.target.value
+        })
+    }
+
+        useEffect(()=>{
+            if(token != ''){
+                navigate('/home')
+            }
+        }, [token])
+
+    async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
+        e.preventDefault();
+        try {
+            const resposta = await api.post(`/usuarios/logar`, userLogin)
+            setToken(resposta.data.token)
+
+            alert('Você conseguiu logar, meu caro!')
+
+        } catch (error) {
+            alert('não deu pra fazer seu login, tenta denovo vai ...')
+        }
+    }
+
     return (
         <Grid
             container
@@ -23,6 +65,8 @@ function Login() {
                             Entrar
                         </Typography>
                         <TextField
+                            value={userLogin.usuario}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             id="usuario"
                             label="usuário"
                             variant='outlined'
@@ -31,6 +75,8 @@ function Login() {
                             fullWidth
                         />
                         <TextField
+                            value={userLogin.senha}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             id="senha"
                             label="senha"
                             variant='outlined'
@@ -40,14 +86,12 @@ function Login() {
                             fullWidth
                         />
                         <Box marginTop={2} textAlign='center'>
-                            <Link to='/home' className='text-decoration-none'>
-                                <Button
-                                    type='submit'
-                                    variant='contained'
-                                    color='primary'>
-                                    Logar
-                                </Button>
-                            </Link>
+                            <Button
+                                type='submit'
+                                variant='contained'
+                                color='primary'>
+                                Logar
+                            </Button>
                         </Box>
                     </form>
                     <Box
