@@ -5,9 +5,11 @@
 .cursor{
     cursor: pointer;
     color: white;
+    padding-right: 1vw;
 }
 
 .container{
     display: flex;
     justify-content: space-between;
+    background-color: rgb(102, 98, 98);
 }

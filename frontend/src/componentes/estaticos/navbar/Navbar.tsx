@@ -10,11 +10,11 @@ function Navbar() {
                 <Toolbar variant="dense" className='container'>
                     <Box className='cursor' >
                         <Typography variant="h5" color="inherit">
-                            Blog Pessoal
+                            Cr7's, O blog.
                         </Typography>
                     </Box>
 
-                    <Box display="flex" justifyContent="start">
+                    <Box display="flex">
                         <Box mx={1} className='cursor'>
                             <Typography variant="h6" color="inherit">
                                 home
