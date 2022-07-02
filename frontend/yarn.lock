@@ -6552,6 +6552,11 @@
   "resolved" "https://registry.npmjs.org/natural-compare/-/natural-compare-1.4.0.tgz"
   "version" "1.4.0"
 
+"navigate@^0.3.6":
+  "integrity" "sha512-2m4e51H3BFTRs3xEWTZDRw+0QByI6245oDGQyubaEJNI0R/Htf6Oh4Hw6VH5dsWYD82iAwpnanXDmECKEuXPGQ=="
+  "resolved" "https://registry.npmjs.org/navigate/-/navigate-0.3.6.tgz"
+  "version" "0.3.6"
+
 "negotiator@0.6.3":
   "integrity" "sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg=="
   "resolved" "https://registry.npmjs.org/negotiator/-/negotiator-0.6.3.tgz"

@@ -2,14 +2,13 @@ import React, { ChangeEvent, useState, useEffect } from 'react'
 import { Box, Grid, Typography, TextField, Button } from '@material-ui/core'
 import useLocalStorage from 'react-use-localstorage'
 import { Link, useNavigate } from 'react-router-dom'
-import { api } from '../../services/Service'
+import { login } from '../../services/Service'
 import './Login.css'
 import UserLogin from '../../models/UserLogin'
 
 function Login() {
     let navigate = useNavigate();
     const[token, setToken] = useLocalStorage('token');
-    
     const [userLogin, setUserLogin] = useState<UserLogin>(
         {
             id: 0,
@@ -28,7 +27,7 @@ function Login() {
     }
 
         useEffect(()=>{
-            if(token != ''){
+            if(token !== ''){
                 navigate('/home')
             }
         }, [token])
@@ -36,10 +35,9 @@ function Login() {
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault();
         try {
-            const resposta = await api.post(`/usuarios/logar`, userLogin)
-            setToken(resposta.data.token)
+            await login(`/usuarios/logar`, userLogin, setToken)
 
-            alert('Você conseguiu logar, meu caro!')
+            alert('Logado com sucesso, bem vindo')
 
         } catch (error) {
             alert('não deu pra fazer seu login, tenta denovo vai ...')
@@ -54,7 +52,7 @@ function Login() {
             alignItems='center'>
             <Grid alignItems='center' xs={6}>
                 <Box paddingX={20}>
-                    <form>
+                    <form onSubmit={onSubmit}>
                         <Typography
                             variant='h3'
                             gutterBottom
