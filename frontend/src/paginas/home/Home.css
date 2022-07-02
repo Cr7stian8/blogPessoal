@@ -4,15 +4,13 @@
 }
 
 .imagens{
-    width: 800px;
-    height: 500px;
     /* Centralizando imagem */
     display: block;
     margin: 0 auto;
 }
 
 .caixa{
-    background-color: #3F51B5; 
+    background: linear-gradient(45deg, rgb(153, 151, 151), rgb(61, 61, 61)); 
 }
 
 .botao{
