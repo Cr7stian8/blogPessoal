@@ -8,7 +8,7 @@ import UserLogin from '../../models/UserLogin'
 
 function Login() {
     let navigate = useNavigate();
-    const[token, setToken] = useLocalStorage('token');
+    const [token, setToken] = useLocalStorage('token');
     const [userLogin, setUserLogin] = useState<UserLogin>(
         {
             id: 0,
@@ -26,11 +26,11 @@ function Login() {
         })
     }
 
-        useEffect(()=>{
-            if(token !== ''){
-                navigate('/home')
-            }
-        }, [token])
+    useEffect(() => {
+        if (token !== '') {
+            navigate('/home')
+        }
+    }, [token])
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -45,14 +45,15 @@ function Login() {
     }
 
     return (
-        <Grid
-            container
-            direction='row'
-            justifyContent='center'
-            alignItems='center'>
-            <Grid alignItems='center' xs={6}>
-                <Box paddingX={20}>
-                    <form onSubmit={onSubmit}>
+        <Grid className='container2'>
+            <Grid
+                xs={6}
+                alignItems='center'>
+                <Box
+                    paddingX='10vw'>
+                    <form
+                        onSubmit={onSubmit}
+                        className='entrar'>
                         <Typography
                             variant='h3'
                             gutterBottom
@@ -118,8 +119,10 @@ function Login() {
                     </Box>
                 </Box>
             </Grid>
-            <Grid xs={6} className='imagem'>
-
+            <Grid
+                xs={6}
+                container
+                className='imagem'>
             </Grid>
         </Grid>
     )
