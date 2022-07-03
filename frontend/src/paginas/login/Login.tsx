@@ -40,7 +40,7 @@ function Login() {
             alert('Logado com sucesso, bem vindo')
 
         } catch (error) {
-            alert('não deu pra fazer seu login, tenta denovo vai ...')
+            alert('Tem certeza que já realizou o cadastro?')
         }
     }
 
@@ -50,7 +50,7 @@ function Login() {
                 xs={6}
                 alignItems='center'>
                 <Box
-                    paddingX='10vw'>
+                    paddingX='1vw'>
                     <form
                         onSubmit={onSubmit}
                         className='entrar'>
@@ -67,7 +67,7 @@ function Login() {
                             value={userLogin.usuario}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             id="usuario"
-                            label="usuário"
+                            label="e-mail"
                             variant='outlined'
                             name='usuario'
                             margin='normal'
@@ -92,12 +92,12 @@ function Login() {
                                 Logar
                             </Button>
                         </Box>
-                    </form>
-                    <Box
+                        <Box
                         display='flex'
                         justifyContent='center'
-                        marginTop={2}>
-                        <Box marginRight={1}>
+                        marginTop={2}
+                        className='cadastro'>
+                        <Box >
                             <Typography
                                 variant="subtitle1"
                                 color="initial"
@@ -117,6 +117,8 @@ function Login() {
                             </Typography>
                         </Link>
                     </Box>
+                    </form>
+                    
                 </Box>
             </Grid>
             <Grid

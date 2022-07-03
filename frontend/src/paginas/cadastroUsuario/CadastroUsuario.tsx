@@ -47,11 +47,22 @@ function CadastroUsuario() {
     }
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
-        if (confirmarSenha == user.senha) {
+        if(user.senha == "" || user.nome=="" || user.usuario==""){
+            alert('Possui campos vazios')
+        }
+        else if (user.usuario.includes("@") === false || user.usuario.includes(".com") === false){
+            alert('Formato esperado no campo e-mail: email@email.com')
+        }
+        else if (user.senha.length < 5) {
+            alert('A senha deve conter ao menos 5 digitos')
+        }
+        else if (confirmarSenha != user.senha) {
+            alert('As senhas não correspondem')
+        }
+        // O usuário só será cadastrado se todas as condições acima forem satisfeitas  
+        else {
             cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
             alert('usuario cadastrado')
-        } else {
-            alert('Não deu pra cadastrar. Tenta de novo ai')
         }
     }
     return (
@@ -97,7 +108,7 @@ function CadastroUsuario() {
                             value={ user.usuario }
                             onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e) }
                             id="usuario"
-                            label="usuario"
+                            label="e-mail"
                             variant='outlined'
                             name='usuario'
                             margin='normal'
@@ -118,7 +129,7 @@ function CadastroUsuario() {
                             value={ confirmarSenha }
                             onChange={ (e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)}
                             id="confirmarSenha"
-                            label="confirmarsenha"
+                            label="confirmar senha"
                             variant='outlined'
                             name='confirmarSenha'
                             margin='normal'
@@ -126,16 +137,16 @@ function CadastroUsuario() {
                             fullWidth
                         />
                         <Box marginTop={2} textAlign='center'>
-                            <Link to='/home' className='text-decorator-none'>
+                            <Link to='/login' className='text-decorator-none'>
                                 <Button
                                     className='btnCancelar'
                                     variant='contained'
                                     color='secondary'>
-                                    Cancelar
+                                    voltar
                                 </Button>
                             </Link>
                             <Button
-                                color='primary'
+                                className='cadastrar'
                                 variant='contained'
                                 type='submit'>
                                 Cadastrar

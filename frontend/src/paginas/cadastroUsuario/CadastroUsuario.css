@@ -15,5 +15,10 @@
 }
 
 .btnCancelar{
+    background-color: rgb(255, 0, 0) !important;
     margin-right: 20px !important;
+}
+.cadastrar{
+    color: aliceblue !important;
+    background-color: green !important;
 }
