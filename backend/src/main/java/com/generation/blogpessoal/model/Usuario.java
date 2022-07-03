@@ -35,7 +35,7 @@ public class Usuario {
 	private String usuario;
 
 	@NotBlank(message = "O atributo Senha é Obrigatório!")
-	@Size(min = 8, message = "A Senha deve ter no mínimo 8 caracteres")
+	@Size(min = 5, message = "A Senha deve ter no mínimo 5 caracteres")
 	private String senha;
 
 	private String foto;
