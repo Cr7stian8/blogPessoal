@@ -28,11 +28,6 @@
     background: linear-gradient(270deg, #B4BEC9, #FFFFFF);
  }
 
- .container2{
-    display: flex ;
-    align-items: center;
-    flex-direction: row ;
- }
 
  .cadastro{
     padding-top: 7vh;
@@ -41,3 +36,20 @@
     color: rgb(77, 72, 72) !important;
  }
  
+ .container-login{
+   background-color: #B4BEC9;
+   width: auto;
+   height: auto;
+   display: flex;
+   flex-direction: row;
+ }
+ @media screen and (max-width: 600px){
+   .container-login{
+      flex-direction: column;
+      width: 100vw;
+   }
+ }
+ .card-login{
+   min-width: 50vw;
+   height: auto;
+ }

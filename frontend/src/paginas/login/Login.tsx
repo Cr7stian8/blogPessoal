@@ -46,10 +46,11 @@ function Login() {
     }
 
     return (
-        <Grid className='container2'>
+        <Grid className='container-login'>
             <Grid
                 xs={6}
-                alignItems='center'>
+                alignItems='center'
+                className='card-login'>
                 <Box
                     paddingX='1vw'>
                     <form
@@ -125,7 +126,7 @@ function Login() {
             <Grid
                 xs={6}
                 container
-                className='imagem'>
+                className='imagem card-login'>
             </Grid>
         </Grid>
     )
