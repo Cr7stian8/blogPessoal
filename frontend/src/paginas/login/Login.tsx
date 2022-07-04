@@ -52,6 +52,7 @@ function Login() {
                 alignItems='center'
                 className='card-login'>
                 <Box
+                    className='box-entrar'
                     paddingX='1vw'>
                     <form
                         onSubmit={onSubmit}
@@ -124,7 +125,6 @@ function Login() {
                 </Box>
             </Grid>
             <Grid
-                xs={6}
                 container
                 className='imagem card-login'>
             </Grid>
