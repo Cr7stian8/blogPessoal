@@ -31,5 +31,5 @@ Versão do java utilizada: 17
 ## Frontend 
 
 #### Execute esses comandos para rodar a aplicação na sua máquina
-<p>npm install</p>
+<p>npm install --force</p>
 <p>Yarn start</p>
