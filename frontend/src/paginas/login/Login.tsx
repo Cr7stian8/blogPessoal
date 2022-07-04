@@ -30,6 +30,7 @@ function Login() {
         if (token !== '') {
             navigate('/home')
         }
+    //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token])
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
