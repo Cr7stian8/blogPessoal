@@ -26,9 +26,10 @@ function CadastroUsuario() {
         })
 
     useEffect(() => {
-        if (userResult.id != 0) {
+        if (userResult.id !== 0) {
             navigate("/login")
         }
+    //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [userResult])
 
 
@@ -47,7 +48,7 @@ function CadastroUsuario() {
     }
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
-        if(user.senha == "" || user.nome=="" || user.usuario==""){
+        if(user.senha === "" || user.nome === "" || user.usuario === ""){
             alert('Possui campos vazios')
         }
         else if (user.usuario.includes("@") === false || user.usuario.includes(".com") === false){
@@ -56,7 +57,7 @@ function CadastroUsuario() {
         else if (user.senha.length < 5) {
             alert('A senha deve conter ao menos 5 digitos')
         }
-        else if (confirmarSenha != user.senha) {
+        else if (confirmarSenha !== user.senha) {
             alert('As senhas não correspondem')
         }
         // O usuário só será cadastrado se todas as condições acima forem satisfeitas  

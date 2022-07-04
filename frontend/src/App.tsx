@@ -6,7 +6,7 @@ import Home from './paginas/home/Home';
 import Login from './paginas/login/Login';
 import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
 import ListaTema from './componentes/temas/listatema/ListaTema';
-import ListaPostagens from './componentes/postagens/listapostagem/ListaPostagem';
+import ListaPostagem from './componentes/postagens/listapostagem/ListaPostagem';
 
 function App() {
   return (
@@ -37,13 +37,13 @@ function App() {
           />   
           
           <Route 
-           path="/temas" 
+           path="/tema" 
            element={< ListaTema />} 
           />   
 
           <Route 
-           path="/postagens" 
-           element={< ListaPostagens />} 
+           path="/postagem" 
+           element={< ListaPostagem />} 
           />   
 
         </Routes>
