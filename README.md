@@ -30,4 +30,6 @@ Versão do java utilizada: 17
 
 ## Frontend 
 
-<p>O frontend da aplicação foi construído utilizando react</p>
+#### Execute esses comandos para rodar a aplicação na sua máquina
+<p>npm install</p>
+<p>Yarn start</p>
