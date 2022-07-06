@@ -17,10 +17,10 @@ function Navbar() {
     return (
         <>
             <AppBar position="static">
-                <Toolbar variant="dense">
+                <Toolbar variant="dense" className='nav'>
                     <Box className='cursor'>
                         <Typography variant="h5" color="inherit">
-                            BlogPessoal
+                            Blog
                         </Typography>
                     </Box>
 
@@ -28,7 +28,7 @@ function Navbar() {
                         <Link to="/home" className="text-decorator-none">
                             <Box mx={1} className='cursor'>
                                 <Typography variant="h6" color="inherit">
-                                    home
+                                    inicio
                                 </Typography>
                             </Box>
                         </Link>
@@ -56,7 +56,7 @@ function Navbar() {
                       
                             <Box mx={1} className='cursor' onClick={goLogout}>
                                 <Typography variant="h6" color="inherit">
-                                    logout
+                                    sair
                                 </Typography>
                             </Box>
                         

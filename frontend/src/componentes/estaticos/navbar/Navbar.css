@@ -13,3 +13,13 @@
     justify-content: space-between;
     background-color: rgb(102, 98, 98);
 }
+
+.toolbar{
+    background-color: #fff;
+}
+
+.nav{
+    background-color: #272727;
+    display: flex;
+    justify-content: space-between;
+}

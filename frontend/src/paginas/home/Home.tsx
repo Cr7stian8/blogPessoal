@@ -26,8 +26,8 @@ function Home() {
               color="textPrimary"
               component="h3"
               align="center"
-              className='titulo'
-            >Seja bem vindo(a)!
+              className='titulo'>
+              bem vindo(a)
             </Typography>
 
             <Typography
@@ -37,7 +37,7 @@ function Home() {
               component="h5"
               align="center"
               className='titulo'
-            >expresse aqui os seus pensamentos e opiniões!
+            >Vai lá e cadastre a sua postagem, é uma ordem !
             </Typography>
 
           </Box>
