@@ -61,7 +61,7 @@ function ListaTema() {
                   justifyContent="center"
                   mb={1.5} >
                   <Link
-                    to={`/atualizarTema/${tema.id}`}
+                    to={`/formularioTema/${tema.id}`}
                     className="text-decorator-none">
                     <Box
                       mx={1}>
