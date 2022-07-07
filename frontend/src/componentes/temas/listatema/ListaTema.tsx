@@ -23,6 +23,7 @@ function ListaTema() {
       alert('Você não realizou o login')
       Navigate('/login')
     }
+    // eslint-disable-next-line
   }, [token])
 
   async function getTema() {
@@ -35,6 +36,7 @@ function ListaTema() {
 
   useEffect(() => {
     getTema()
+    // eslint-disable-next-line
   }, [temas.length])
   return (
     <>

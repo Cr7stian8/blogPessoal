@@ -6,14 +6,16 @@ import useLocalStorage from 'react-use-localstorage';
 
 import './Navbar.css'
 function Navbar() {
+
     const [token, setToken] = useLocalStorage('token');
     let navigate = useNavigate();
     
     function goLogout(){
         setToken('')
         alert("Usuário deslogado")
-       navigate('/login')
+        navigate('/login')
     }
+
     return (
         <>
             <AppBar position="static">
