@@ -63,8 +63,8 @@ function Home() {
 
             <Button
               variant="outlined"
-              className='botao'
-            >Ver Postagens
+              className='botao'>
+              Ver Postagens
             </Button>
 
           </Box>
