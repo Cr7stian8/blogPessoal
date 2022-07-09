@@ -3,19 +3,23 @@ import { Typography, Box, Grid, Button } from '@material-ui/core';
 import './Home.css';
 import TabPostagem from '../../componentes/postagens/tabpostagem/TabPostagem';
 import { useNavigate } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
 import ModalPostagem from '../../componentes/postagens/modalPostagem/ModalPostagem';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../store/tokens/tokenReducer';
+import { Link } from 'react-router-dom';
 
 function Home() {
-    let navigate = useNavigate();
-    const [token, setToken] = useLocalStorage('token');
-    
-    useEffect(() => {
-      if (token === "") {
-          alert("Você precisa estar logado")
-          navigate("/login")
-      }
-      // eslint-disable-next-line
+  let navigate = useNavigate();
+  const token = useSelector<TokenState, TokenState["token"]>(
+    (state) => state.token
+  )
+
+  useEffect(() => {
+    if (token === "") {
+      alert("Você precisa estar logado")
+      navigate("/login")
+    }
+    // eslint-disable-next-line
   }, [token])
 
   return (
@@ -27,7 +31,7 @@ function Home() {
         justifyContent="center"
         alignItems="center"
         className='caixa'
-        >
+      >
 
         {/* Primeiro Grid */}
 
@@ -54,18 +58,20 @@ function Home() {
             >Vai lá e cadastre a sua postagem, é uma ordem !
             </Typography>
 
-          </Box> 
+          </Box>
 
           <Box display="flex" justifyContent="center">
             <Box marginRight={1}>
-              <ModalPostagem/>
+              <ModalPostagem />
             </Box>
 
-            <Button
-              variant="outlined"
-              className='botao'>
-              Ver Postagens
-            </Button>
+            <Link to='/posts'>
+              <Button
+                variant="outlined"
+                className='botao'>
+                Ver Postagens
+              </Button>
+            </Link>
 
           </Box>
         </Grid>
@@ -77,7 +83,7 @@ function Home() {
         </Grid>
 
         <Grid xs={12} className='postagens'>
-            <TabPostagem/>
+          <TabPostagem />
         </Grid>
       </Grid>
 

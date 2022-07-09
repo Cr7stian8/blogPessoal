@@ -1,14 +1,19 @@
 import React, { ChangeEvent, useState, useEffect } from 'react'
 import { Box, Grid, Typography, TextField, Button } from '@material-ui/core'
-import useLocalStorage from 'react-use-localstorage'
 import { Link, useNavigate } from 'react-router-dom'
 import { login } from '../../services/Service'
 import './Login.css'
 import UserLogin from '../../models/UserLogin'
+import { useDispatch } from 'react-redux'
+import { addToken } from '../../store/tokens/action'
 
 function Login() {
     let navigate = useNavigate();
-    const [token, setToken] = useLocalStorage('token');
+    
+    /* Criando hook use Dispatch */
+    const dispatch = useDispatch()
+
+    const [token, setToken] = useState('');
     const [userLogin, setUserLogin] = useState<UserLogin>(
         {
             id: 0,
@@ -26,10 +31,14 @@ function Login() {
         })
     }
 
+    /* Hook responsável por verificar se o usuario tem acesso */
     useEffect(() => {
         if (token !== '') {
+            /* Armazenando o token */
+            dispatch(addToken(token))
             navigate('/home')
         }
+
     //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token])
 

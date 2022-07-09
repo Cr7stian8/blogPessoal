@@ -1,23 +1,33 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Box } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import {useNavigate } from 'react-router-dom'
-import useLocalStorage from 'react-use-localstorage';
-
+import { useNavigate } from 'react-router-dom'
 import './Navbar.css'
+import { useDispatch, useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokenReducer';
+import { addToken } from '../../../store/tokens/action';
 function Navbar() {
 
-    const [token, setToken] = useLocalStorage('token');
+    const token = useSelector<TokenState, TokenState['token']>(
+        (state) => state.token
+    )
+
+    const dispatch = useDispatch()
+
     let navigate = useNavigate();
-    
-    function goLogout(){
-        setToken('')
+
+    function goLogout() {
+        dispatch(addToken(''))
         alert("Usuário deslogado")
         navigate('/login')
     }
 
-    return (
-        <>
+    //Renderização condicional
+
+    var navbarComponent
+    if (token !== "") {
+        navbarComponent =
+
             <AppBar position="static">
                 <Toolbar variant="dense" className='nav'>
                     <Box className='cursor'>
@@ -25,7 +35,6 @@ function Navbar() {
                             Blog
                         </Typography>
                     </Box>
-
                     <Box display="flex" justifyContent="start">
                         <Link to="/home" className="text-decorator-none">
                             <Box mx={1} className='cursor'>
@@ -42,30 +51,32 @@ function Navbar() {
                             </Box>
                         </Link>
                         <Link to="/temas" className="text-decorator-none">
-                        <Box mx={1} className='cursor'>
-                            <Typography variant="h6" color="inherit">
-                                temas
-                            </Typography>
-                        </Box>
-                        </Link>
-                        <Link to="/formularioTema" className="text-decorator-none">
-                        <Box mx={1} className='cursor'>
-                            <Typography variant="h6" color="inherit">
-                                cadastrar tema
-                            </Typography>
-                        </Box>
-                        </Link>
-                      
-                            <Box mx={1} className='cursor' onClick={goLogout}>
+                            <Box mx={1} className='cursor'>
                                 <Typography variant="h6" color="inherit">
-                                    sair
+                                    temas
                                 </Typography>
                             </Box>
-                        
+                        </Link>
+                        <Link to="/formularioTema" className="text-decorator-none">
+                            <Box mx={1} className='cursor'>
+                                <Typography variant="h6" color="inherit">
+                                    cadastrar tema
+                                </Typography>
+                            </Box>
+                        </Link>
+                        <Box mx={1} className='cursor' onClick={goLogout}>
+                            <Typography variant="h6" color="inherit">
+                                sair
+                            </Typography>
+                        </Box>
                     </Box>
-
                 </Toolbar>
             </AppBar>
+    }
+
+    return (
+        <>
+            {navbarComponent}
         </>
     )
 }
