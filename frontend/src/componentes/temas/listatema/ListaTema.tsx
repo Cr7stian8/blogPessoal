@@ -5,6 +5,7 @@ import './ListaTema.css';
 import { busca } from '../../../services/Service';
 import useLocalStorage from 'react-use-localstorage';
 import Tema from '../../../models/Tema';
+import { toast } from 'react-toastify';
 
 function ListaTema() {
   // ----- HOOKS -------
@@ -20,7 +21,16 @@ function ListaTema() {
 
   useEffect(() => {
     if (token === '') {
-      alert('Você não realizou o login')
+      toast.info('Você não está logado', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme:'colored',
+        progress: undefined
+    })
       Navigate('/login')
     }
     // eslint-disable-next-line

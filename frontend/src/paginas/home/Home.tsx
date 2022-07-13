@@ -7,6 +7,7 @@ import ModalPostagem from '../../componentes/postagens/modalPostagem/ModalPostag
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../store/tokens/tokenReducer';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 function Home() {
   let navigate = useNavigate();
@@ -16,7 +17,16 @@ function Home() {
 
   useEffect(() => {
     if (token === "") {
-      alert("Você precisa estar logado")
+      toast.error('Você não realizou o login', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme:'colored',
+        progress: undefined
+    })
       navigate("/login")
     }
     // eslint-disable-next-line

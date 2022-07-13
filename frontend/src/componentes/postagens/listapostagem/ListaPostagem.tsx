@@ -7,20 +7,32 @@ import './ListaPostagem.css';
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokenReducer';
+import { toast } from 'react-toastify';
 
-/* Substituindo Token do useLocalStorage pelo Redux */
-const token = useSelector<TokenState, TokenState["token"]>(
-  (state) => state.token
-)
+
 
 function ListaPostagem() {
+  /* Substituindo Token do useLocalStorage pelo Redux */
+  const token = useSelector<TokenState, TokenState["token"]>(
+    (state) => state.token
+  )
+
   const [posts, setPosts] = useState<Postagem[]>([])
-  
+
   let navigate = useNavigate();
 
   useEffect(() => {
     if (token == "") {
-      alert("Você precisa estar logado")
+      toast.error('Você não está logado', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme:'colored',
+        progress: undefined
+    })
       navigate("/login")
 
     }

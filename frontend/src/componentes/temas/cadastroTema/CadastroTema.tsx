@@ -4,6 +4,7 @@ import Tema from '../../../models/Tema';
 import { buscaId, post, put } from '../../../services/Service';
 import { useNavigate, useParams } from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
+import { toast } from 'react-toastify';
 
 
 function CadastroTema() {
@@ -24,7 +25,16 @@ function CadastroTema() {
     //Verificando se o usuário está autenticado ao carregar a tela
     useEffect(() => {
         if (token === "") {
-            alert('Você não realizou o login')
+            toast.info('Você não realizou o login', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme:'colored',
+                progress: undefined
+            })
             navigate('/login')
         }
     }, [token])
@@ -68,7 +78,16 @@ function CadastroTema() {
                     'Authorization' : token
                 }
             })
-            alert("Você atualizou com 100% de sucesso sem erros parabéns !")
+            toast.info('Postagem Atualizada', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme:'colored',
+                progress: undefined
+            })
             navigate('/temas')
         }
         // Cadastrando caso não esteaja
@@ -78,7 +97,16 @@ function CadastroTema() {
                     'Authorization' : token
                 }
             })
-            alert("Você conseguiu cadastrar um tema! Que tal adicionar uma postagem agora?")
+            toast.info('Tema cadastrado com sucesso', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme:'colored',
+                progress: undefined
+            })
             navigate('/temas')
         }
     }

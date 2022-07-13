@@ -5,6 +5,7 @@ import { cadastroUsuario } from '../../services/Service';
 import { Grid, Box, Typography, Button, TextField } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import './CadastroUsuario.css';
+import { toast } from 'react-toastify';
 
 function CadastroUsuario() {
     let navigate = useNavigate();
@@ -49,21 +50,66 @@ function CadastroUsuario() {
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
         if(user.senha === "" || user.nome === "" || user.usuario === ""){
-            alert('Possui campos vazios')
+            toast.error('Possui campos vazios', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme:'colored',
+                progress: undefined
+            })
         }
         else if (user.usuario.includes("@") === false || user.usuario.includes(".com") === false){
-            alert('Formato esperado no campo e-mail: email@email.com')
+            toast.error('Formato esperado no campo e-mail: email@email.com', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme:'colored',
+                progress: undefined
+            })
         }
         else if (user.senha.length < 5) {
-            alert('A senha deve conter ao menos 5 digitos')
+            toast.error('A senha deve conter ao menos 5 digitos', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme:'colored',
+                progress: undefined
+            })
         }
         else if (confirmarSenha !== user.senha) {
-            alert('As senhas não correspondem')
+            toast.error('As senhas não correspondem', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme:'colored',
+                progress: undefined
+            })
         }
         // O usuário só será cadastrado se todas as condições acima forem satisfeitas  
         else {
             cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
-            alert('usuario cadastrado')
+            toast.success('usuario cadastrado', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme:'colored',
+                progress: undefined
+            })
         }
     }
     
