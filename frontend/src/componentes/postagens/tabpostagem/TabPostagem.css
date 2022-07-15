@@ -1,3 +1,7 @@
-.titulo{
+.titulo-tab{
     font-weight: bold;
+ }
+
+ .bg-tabs{
+    background-color: rgb(29, 28, 28);
  }

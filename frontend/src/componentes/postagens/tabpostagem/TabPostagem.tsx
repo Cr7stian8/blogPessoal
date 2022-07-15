@@ -19,6 +19,7 @@ function TabPostagem() {
         <AppBar
           position="static">
           <Tabs
+            className='bg-tabs'
             centered
             indicatorColor="secondary"
             onChange={handleChange}>
@@ -47,7 +48,7 @@ function TabPostagem() {
             color="textPrimary"
             component="h5"
             align="center"
-            className="titulo">
+            className="titulo-tab">
             Sobre-nós
           </Typography>
           <Typography

@@ -46,8 +46,7 @@ function Home() {
         {/* Primeiro Grid */}
 
         <Grid alignItems="center" item xs={6}  className='bemvindo'>
-          <Box paddingX={20} className='titulo'>
-
+          <Box paddingX={20} className='titulo' paddingY={10}>
             <Typography
               variant="h3"
               gutterBottom
@@ -73,7 +72,7 @@ function Home() {
               <ModalPostagem />
             </Box>
 
-            <Link to='/posts'>
+            <Link to='/posts' className='tdn color-black'>
               <Button
                 variant="outlined"
                 className='botao'>
