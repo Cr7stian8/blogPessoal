@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
+import { Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import './ListaTema.css';
 import { busca } from '../../../services/Service';
 import useLocalStorage from 'react-use-localstorage';
@@ -8,6 +8,7 @@ import Tema from '../../../models/Tema';
 import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokenReducer';
+import { Box } from '@mui/material';
 
 function ListaTema() {
   // ----- HOOKS -------

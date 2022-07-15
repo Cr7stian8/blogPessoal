@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Typography, Box, Grid, Button } from '@material-ui/core';
+import { Typography, Grid, Button } from '@material-ui/core';
 import './Home.css';
 import TabPostagem from '../../componentes/postagens/tabpostagem/TabPostagem';
 import { useNavigate } from 'react-router-dom';
@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import { TokenState } from '../../store/tokens/tokenReducer';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { Box } from '@mui/material';
 
 function Home() {
   let navigate = useNavigate();
