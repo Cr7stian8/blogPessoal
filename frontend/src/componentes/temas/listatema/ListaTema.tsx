@@ -6,6 +6,8 @@ import { busca } from '../../../services/Service';
 import useLocalStorage from 'react-use-localstorage';
 import Tema from '../../../models/Tema';
 import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokenReducer';
 
 function ListaTema() {
   // ----- HOOKS -------
@@ -13,8 +15,10 @@ function ListaTema() {
   //Criando array que vai armazenar todos os temas
   const [temas, setTemas] = useState<Tema[]>([]);
 
-  //Pegando o token gerado na hora do login
-  const [token, setToken] = useLocalStorage('token');
+    /* Substituindo Token do useLocalStorage pelo Redux */
+    const token = useSelector<TokenState, TokenState["token"]>(
+      (state) => state.token
+    )
 
   // Criando variável que permite navegar entre as telas
   let Navigate = useNavigate();

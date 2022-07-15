@@ -5,6 +5,8 @@ import { buscaId, post, put } from '../../../services/Service';
 import { useNavigate, useParams } from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
 import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokenReducer';
 
 
 function CadastroTema() {
@@ -13,8 +15,10 @@ function CadastroTema() {
     // Use param é resposável por capturar o id da url
     const { id } = useParams<{ id: string }>()
 
-    //Pegando token do armazenamento local
-    const [token, setToken] = useLocalStorage('token')
+    /* Substituindo Token do useLocalStorage pelo Redux */
+    const token = useSelector<TokenState, TokenState["token"]>(
+        (state) => state.token
+    )
 
     //Inicializando state vazio
     const [tema, setTema] = useState<Tema>({
@@ -32,7 +36,7 @@ function CadastroTema() {
                 closeOnClick: true,
                 pauseOnHover: false,
                 draggable: false,
-                theme:'colored',
+                theme: 'colored',
                 progress: undefined
             })
             navigate('/login')
@@ -57,8 +61,8 @@ function CadastroTema() {
     }, [id])
 
     //Captura os valores a partir do formulário
-    function updatedTema(e: ChangeEvent<HTMLInputElement>){
-        setTema ({
+    function updatedTema(e: ChangeEvent<HTMLInputElement>) {
+        setTema({
             ...tema,
             [e.target.name]: e.target.value
         })
@@ -75,7 +79,7 @@ function CadastroTema() {
             console.log(tema)
             put(`/temas`, tema, setTema, {
                 headers: {
-                    'Authorization' : token
+                    'Authorization': token
                 }
             })
             toast.info('Postagem Atualizada', {
@@ -85,16 +89,16 @@ function CadastroTema() {
                 closeOnClick: true,
                 pauseOnHover: false,
                 draggable: false,
-                theme:'colored',
+                theme: 'colored',
                 progress: undefined
             })
             navigate('/temas')
         }
         // Cadastrando caso não esteaja
-        else{
+        else {
             post(`temas`, tema, setTema, {
-                headers : {
-                    'Authorization' : token
+                headers: {
+                    'Authorization': token
                 }
             })
             toast.info('Tema cadastrado com sucesso', {
@@ -104,7 +108,7 @@ function CadastroTema() {
                 closeOnClick: true,
                 pauseOnHover: false,
                 draggable: false,
-                theme:'colored',
+                theme: 'colored',
                 progress: undefined
             })
             navigate('/temas')

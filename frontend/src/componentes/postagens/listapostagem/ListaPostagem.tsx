@@ -22,9 +22,9 @@ function ListaPostagem() {
   let navigate = useNavigate();
 
   useEffect(() => {
-    if (token == "") {
+    if (token === "") {
       toast.error('Você não está logado', {
-        position: "top-right",
+        position: "top-center",
         autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -32,10 +32,10 @@ function ListaPostagem() {
         draggable: false,
         theme:'colored',
         progress: undefined
-    })
+      })
       navigate("/login")
-
     }
+  // eslint-disable-next-line
   }, [token])
 
   async function getPost() {
@@ -49,7 +49,7 @@ function ListaPostagem() {
   useEffect(() => {
 
     getPost()
-
+// eslint-disable-next-line
   }, [posts.length])
 
   return (

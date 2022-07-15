@@ -49,7 +49,7 @@ function Login() {
             await login(`/usuarios/logar`, userLogin, setToken)
 
             toast.success('Logado com sucesso, bem vindo', {
-                position: "top-right",
+                position: "top-center",
                 autoClose: 2000,
                 hideProgressBar: false,
                 closeOnClick: true,
@@ -61,7 +61,7 @@ function Login() {
 
         } catch (error) {
             toast.error('Tem certeza que já realizou o cadastro?', {
-                position: "top-right",
+                position: "top-center",
                 autoClose: 2000,
                 hideProgressBar: false,
                 closeOnClick: true,

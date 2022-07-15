@@ -18,7 +18,7 @@ function Home() {
   useEffect(() => {
     if (token === "") {
       toast.error('Você não realizou o login', {
-        position: "top-right",
+        position: "top-center",
         autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -45,16 +45,15 @@ function Home() {
 
         {/* Primeiro Grid */}
 
-        <Grid alignItems="center" item xs={6} >
-          <Box paddingX={20} >
+        <Grid alignItems="center" item xs={6}  className='bemvindo'>
+          <Box paddingX={20} className='titulo'>
 
             <Typography
               variant="h3"
               gutterBottom
               color="textPrimary"
               component="h3"
-              align="center"
-              className='titulo'>
+              align="center">
               bem vindo(a)
             </Typography>
 
@@ -63,9 +62,8 @@ function Home() {
               gutterBottom
               color="textPrimary"
               component="h5"
-              align="center"
-              className='titulo'
-            >Vai lá e cadastre a sua postagem, é uma ordem !
+              align="center">
+              expresse aqui seus pensamentos e opniões
             </Typography>
 
           </Box>
@@ -84,12 +82,6 @@ function Home() {
             </Link>
 
           </Box>
-        </Grid>
-
-        { /* Segundo Grid */}
-
-        <Grid item xs={6}>
-          <img src="https://i.imgur.com/H88yIo2.png" alt="" width="500px" height="500px" />
         </Grid>
 
         <Grid xs={12} className='postagens'>

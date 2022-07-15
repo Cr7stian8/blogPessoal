@@ -1,5 +1,5 @@
 .titulo{
-    color: white !important;
+    color: white;
     font-weight: bold !important;
 }
 
@@ -21,4 +21,8 @@
 
 .postagens{
     background-color: white;
+}
+
+.bemvindo{
+    height: 100vh;
 }

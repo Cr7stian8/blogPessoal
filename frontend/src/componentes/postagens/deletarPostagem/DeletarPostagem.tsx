@@ -6,12 +6,17 @@ import useLocalStorage from 'react-use-localstorage';
 import Postagem from '../../../models/Postagem';
 import { buscaId, deleteId } from '../../../services/Service';
 import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokenReducer';
 
 function DeletarPostagem() {
     let navigate = useNavigate();
     const { id } = useParams<{id: string}>();
-    const [token, setToken] = useLocalStorage('token');
     const [post, setPosts] = useState<Postagem>()
+
+    const token = useSelector<TokenState, TokenState["token"]>(
+      (state) => state.token
+    )
 
     //Verificando se o usuário está logado
     useEffect(() => {
