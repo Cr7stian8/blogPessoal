@@ -61,7 +61,7 @@ function ListaPostagem() {
             <div className='card'>
               {/* Tudo menos botões */}
               <section>
-                <article>
+                <article className='desc'>
                   {post.tema?.descricao}
                 </article>
                 <article>

@@ -4,6 +4,14 @@
     margin: 0 auto;
 }
 
+.tdn{
+    text-decoration: none;
+}
+
+.color-black{
+    background-color: rgb(48, 47, 47);
+}
+
 .caixa{
     background-color: gainsboro; 
 }
@@ -18,16 +26,24 @@
     background-color: white;
 }
 
+/* Itens responsivos */
+
 .bemvindo{
     border-radius: 90px;
     background-color: rgb(239, 239, 239);
-    height: 500px;
+    height: 70vh;
 }
 
-.tdn{
-    text-decoration: none;
+.texto-home{
+    padding-top: 20vh;
+    padding-left:20px ;
+    padding-right:20px ;
 }
 
-.color-black{
-    background-color: rgb(48, 47, 47);
+/* Responsivando itens */
+@media screen and (max-width: 600px){
+    .bemvindo{
+        height: 80vh;
+        min-width: 90vw;
+    }
 }

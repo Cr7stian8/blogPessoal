@@ -9,15 +9,32 @@
     justify-content: center;
     min-height: 100vh ;
 }
-
+/* adc responsivity */
 .card{
     padding: 2vw;
     margin: 2vw;
     background-color:rgba(124, 118, 118, 0.893);
     box-shadow: 10px 10px;
+    width: 30vw;
+    height: 30vh;
 }
+
+@media screen and (max-width:600px) {
+    .card{
+        background-color:rgba(124, 118, 118, 0.893);
+        box-shadow: 5px 5px;
+        width: 80vw;
+        height: 30vh;
+    }
+}
+
 
 article{
     color: rgba(255, 255, 255, 0.901);
     margin-bottom: 20px;
+}
+
+.desc{
+    font-weight: bold;
+    font-size: 20px;
 }

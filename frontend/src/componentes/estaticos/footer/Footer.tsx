@@ -36,7 +36,7 @@ function Footer() {
                                 align="center"
                                 gutterBottom
                                 style={{ color: "white" }}>
-                                Siga-nos nas redes sociais
+                                Me visite no linkedin
                             </Typography>
                         </Box>
 
@@ -44,19 +44,8 @@ function Footer() {
                             display="flex"
                             alignItems="center"
                             justifyContent="center">
-
                             <a
-                                href="https://www.facebook.com/generationbrasil" >
-                                <FacebookIcon className='redes' />
-                            </a>
-
-                            <a
-                                href="https://www.instagram.com/generationbrasil/" >
-                                <InstagramIcon className='redes' />
-                            </a>
-
-                            <a
-                                href="https://www.linkedin.com/school/generationbrasil/" >
+                                href="https://www.linkedin.com/school/cristianotp/" >
                                 <LinkedInIcon className='redes' />
                             </a>
                         </Box>
@@ -73,18 +62,6 @@ function Footer() {
                                 className='textos'>
                                 © 2020 Copyright:
                             </Typography>
-                        </Box>
-
-                        <Box>
-                            <a href="https://brasil.generation.org">
-                                <Typography
-                                    variant="subtitle2"
-                                    gutterBottom
-                                    className='textos'
-                                    align="center">
-                                    brasil.generation.org
-                                </Typography>
-                            </a>
                         </Box>
 
                     </Box>

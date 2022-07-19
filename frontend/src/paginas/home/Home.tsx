@@ -47,7 +47,7 @@ function Home() {
         {/* Primeiro Grid */}
 
         <Grid alignItems="center" item xs={6}  className='bemvindo'>
-          <Box paddingX={20} className='titulo' paddingY={10}>
+          <div className='texto-home'>
             <Typography
               variant="h3"
               gutterBottom
@@ -66,7 +66,7 @@ function Home() {
               Atualmente aqui você armazena a data da suas contas
             </Typography>
 
-          </Box>
+          </div>
 
           <Box display="flex" justifyContent="center">
             <Box marginRight={1}>

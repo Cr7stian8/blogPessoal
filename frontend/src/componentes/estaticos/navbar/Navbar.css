@@ -12,14 +12,34 @@
     display: flex;
     justify-content: space-between;
     background-color: rgb(102, 98, 98);
+    
 }
 
 .toolbar{
     background-color: #fff;
 }
 
+/* Items não responsivos */
 .nav{
     background-color: #272727;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.wrap{
+    display: flex;
+}
+
+/* Deixando itens não responsivos responsivos */
+@media screen and (max-width: 600px){
+    .wrap{
+        flex-direction: column;
+    }
+    .nav{
+        flex-direction: column;
+    }
+    .margin10{
+        margin: 10px;
+    }
 }

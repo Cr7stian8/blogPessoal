@@ -42,12 +42,12 @@ function Navbar() {
 
             <AppBar position="static">
                 <Toolbar variant="dense" className='nav'>
-                    <Box className='cursor'>
+                    <Box className='cursor margin10'>
                         <Typography variant="h5" color="inherit">
                             Blog
                         </Typography>
                     </Box>
-                    <Box display="flex" justifyContent="start">
+                    <Box justifyContent="start" className='wrap'>
                         <Link to="/home" className="text-decorator-none">
                             <Box mx={1} className='cursor'>
                                 <Typography variant="h6" color="inherit">
