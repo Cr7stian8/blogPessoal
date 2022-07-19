@@ -31,12 +31,12 @@ function ListaPostagem() {
         closeOnClick: true,
         pauseOnHover: false,
         draggable: false,
-        theme:'colored',
+        theme: 'colored',
         progress: undefined
       })
       navigate("/login")
     }
-  // eslint-disable-next-line
+    // eslint-disable-next-line
   }, [token])
 
   async function getPost() {
@@ -50,29 +50,29 @@ function ListaPostagem() {
   useEffect(() => {
 
     getPost()
-// eslint-disable-next-line
+    // eslint-disable-next-line
   }, [posts.length])
 
   return (
     <>
-      {
-        posts.map(post => (
-          <Box m={2} >
-            <Card variant="outlined">
-              <CardContent>
-                <Typography color="textSecondary" gutterBottom>
-                  Postagens
-                </Typography>
-                <Typography variant="h5" component="h2">
-                  {post.titulo}
-                </Typography>
-                <Typography variant="body2" component="p">
-                  {post.texto}
-                </Typography>
-                <Typography variant="body2" component="p">
+      <div className='cards'>
+        {
+          posts.map(post => (
+            <div className='card'>
+              {/* Tudo menos botões */}
+              <section>
+                <article>
                   {post.tema?.descricao}
-                </Typography>
-              </CardContent>
+                </article>
+                <article>
+                  {post.titulo}
+                </article>
+                <article>
+                  {post.texto}
+                </article>
+              </section>
+
+              {/* Botões */}
               <CardActions>
                 <Box display="flex" justifyContent="center" mb={1.5}>
 
@@ -92,10 +92,12 @@ function ListaPostagem() {
                   </Link>
                 </Box>
               </CardActions>
-            </Card>
-          </Box>
-        ))
-      }
+
+            </div>
+
+          ))
+        }
+      </div>
     </>
   )
 }

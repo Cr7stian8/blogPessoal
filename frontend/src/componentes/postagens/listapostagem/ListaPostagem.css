@@ -1,3 +1,23 @@
 .text-decorator-none{
     text-decoration: none;
 }
+
+.cards{
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: 100vh ;
+}
+
+.card{
+    padding: 2vw;
+    margin: 2vw;
+    background-color:rgba(124, 118, 118, 0.893);
+    box-shadow: 10px 10px;
+}
+
+article{
+    color: rgba(255, 255, 255, 0.901);
+    margin-bottom: 20px;
+}

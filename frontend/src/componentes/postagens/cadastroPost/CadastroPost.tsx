@@ -140,7 +140,7 @@ function CadastroPost() {
                     color="textSecondary"
                     component="h1"
                     align="center" >
-                    Formulário de cadastro postagem
+                    cadastre uma postagem
                 </Typography>
                 <TextField
                     value={postagem.titulo}
@@ -159,35 +159,38 @@ function CadastroPost() {
                     variant="outlined"
                     margin="normal"
                     fullWidth />
-                <FormControl >
-                    <InputLabel
-                        id="demo-simple-select-helper-label">
-                        Tema
-                    </InputLabel>
-                    <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        onChange={(e) => buscaId(`/temas/${e.target.value}`, setTema, {
-                            headers: {
-                                'Authorization': token
+                <div >
+                    <section className='display-flex'>
+                        <article id='tema'>
+                            Tema
+                        </article>
+                        <article id='texto-auxiliar'>
+                            Escolha um tema para a postagem
+                        </article>
+                    </section>
+                    <section className='botoesCadPost'>
+                        <Select
+                            labelId="demo-simple-select-helper-label"
+                            id="demo-simple-select-helper"
+                            onChange={(e) => buscaId(`/temas/${e.target.value}`, setTema, {
+                                headers: {
+                                    'Authorization': token
+                                }
+                            })}>
+                            {
+                                temas.map(tema => (
+                                    <MenuItem value={tema.id}>{tema.descricao}</MenuItem>
+                                ))
                             }
-                        })}>
-                        {
-                            temas.map(tema => (
-                                <MenuItem value={tema.id}>{tema.descricao}</MenuItem>
-                            ))
-                        }
-                    </Select>
-                    <FormHelperText>
-                        Escolha um tema para a postagem
-                    </FormHelperText>
-                    <Button
-                        type="submit"
-                        variant="contained"
-                        color="primary">
-                        Finalizar
-                    </Button>
-                </FormControl>
+                        </Select>
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            className='finalizar-cadastro'>
+                            Finalizar
+                        </Button>
+                    </section>
+                </div>
             </form>
         </Container>
     )

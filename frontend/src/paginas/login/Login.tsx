@@ -138,7 +138,7 @@ function Login() {
                                 Não tem uma conta?
                             </Typography>
                         </Box>
-                        <Link to='/cadastrousuario'>
+                        {/* <Link to='/cadastrousuario'> */}
                             <Typography
                                 variant="subtitle1"
                                 color="initial"
@@ -147,7 +147,7 @@ function Login() {
                                 className='textos1'>
                                 Cadastre-se
                             </Typography>
-                        </Link>
+                        {/* </Link> */}
                     </Box>
                     </form>
                     

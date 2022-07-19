@@ -54,7 +54,7 @@ function Home() {
               color="textPrimary"
               component="h3"
               align="center">
-              bem vindo(a)
+              bem vindo Cris
             </Typography>
 
             <Typography
@@ -63,7 +63,7 @@ function Home() {
               color="textPrimary"
               component="h5"
               align="center">
-              expresse aqui seus pensamentos e opniões
+              Atualmente aqui você armazena a data da suas contas
             </Typography>
 
           </Box>

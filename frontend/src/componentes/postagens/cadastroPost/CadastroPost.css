@@ -1,3 +1,29 @@
 .topo{
     margin-top: 20px;
 }
+
+.botoesCadPost{
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+}
+
+.finalizar-cadastro{
+    color: white!important;
+    background-color: rgb(55, 55, 55) !important;
+}
+
+.display-flex{
+    display: flex;
+}
+
+#tema{
+    font-size: 18px;
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+#texto-auxiliar{
+    color: grey;
+    font-size: 18px;
+}
