@@ -1,68 +1,21 @@
-.textos1 {
-   font-weight: bold !important;
+.card-login {
+   margin-left: 2vw;
+   margin-right: 2vw;
+   border: 3px solid black;
+   border-radius: 40px;
+   padding-left: 5vw;
+   padding-right: 5vw;
+   background-color: rgba(255, 255, 255, 0.582);
+   position: relative;
+   top: 40%;
+   transform: translateY(-50%);
 }
 
-.imagem {
-   background-image: url(https://cdn.pixabay.com/photo/2017/05/30/03/58/blog-2355684_960_720.jpg);
-   background-repeat: no-repeat;
-   max-width: 30vw;
-   min-height: 100vh;
+.corpo-login {
+   background-image: url(../../assets/img/DragonballResultado.jpg);
    background-size: cover;
    background-position: center;
-   margin-left: 5vw;
-}
-
-.text-decorator-none {
-   text-decoration: none;
-}
-
-.entrar {
-   max-width: 70vw;
-   min-height: 80vh;
-   margin-left: 5vh;
-   padding-top: 10vh;
-   padding-left: 2vw;
-   padding-right: 2vw;
-   border-radius: 40px 40px 250px 40px;
-   border: 5px solid rgb(167, 165, 165);
-   background: linear-gradient(270deg, #B4BEC9, #FFFFFF);
-}
-.card-login {
-   min-width: 45vw;
-   max-height: 100vh;
-}
-
-.box-entrar {
-   margin-top: 30px;
-   margin-bottom: 30px;
-}
-
-.cadastro {
-   padding-top: 7vh;
-}
-
-.MuiInputLabel-animated {
-   color: rgb(77, 72, 72) !important;
-}
-
-.container-login {
-   background-color: #B4BEC9;
-   width: auto;
-   height: auto;
-   display: flex;
-   flex-direction: row;
-}
-
-@media screen and (max-width: 600px) {
-   .container-login {
-      flex-direction: column;
-      width: 100vw;
-   }
-   .box-entrar {
-      min-width: 100vw;
-   }
-   .card-login {
-      min-width: 90vw;
-      min-height: 100vh;
-   }
+   background-repeat: no-repeat;
+   width: 100vw;
+   height: 100vh;
 }

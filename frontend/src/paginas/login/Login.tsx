@@ -11,7 +11,7 @@ import { Box } from '@mui/material'
 
 function Login() {
     let navigate = useNavigate();
-    
+
     /* Criando hook use Dispatch */
     const dispatch = useDispatch()
 
@@ -41,7 +41,7 @@ function Login() {
             navigate('/home')
         }
 
-    //eslint-disable-next-line react-hooks/exhaustive-deps
+        //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token])
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
@@ -56,7 +56,7 @@ function Login() {
                 closeOnClick: true,
                 pauseOnHover: false,
                 draggable: false,
-                theme:'colored',
+                theme: 'colored',
                 progress: undefined
             })
 
@@ -68,16 +68,17 @@ function Login() {
                 closeOnClick: true,
                 pauseOnHover: false,
                 draggable: false,
-                theme:'colored',
+                theme: 'colored',
                 progress: undefined
             })
         }
     }
 
     return (
-        <Grid className='container-login'>
+
+        <div className='corpo-login'>
             <Grid
-                xs={6}
+                xs={12}
                 alignItems='center'
                 className='card-login'>
                 <Box
@@ -125,20 +126,20 @@ function Login() {
                             </Button>
                         </Box>
                         <Box
-                        display='flex'
-                        justifyContent='center'
-                        marginTop={2}
-                        className='cadastro'>
-                        <Box >
-                            <Typography
-                                variant="subtitle1"
-                                color="initial"
-                                gutterBottom
-                                align='center'>
-                                Não tem uma conta?
-                            </Typography>
-                        </Box>
-                        {/* <Link to='/cadastrousuario'> */}
+                            display='flex'
+                            justifyContent='center'
+                            marginTop={2}
+                            className='cadastro'>
+                            <Box >
+                                <Typography
+                                    variant="subtitle1"
+                                    color="initial"
+                                    gutterBottom
+                                    align='center'>
+                                    Não tem uma conta?
+                                </Typography>
+                            </Box>
+                            {/* <Link to='/cadastrousuario'> */}
                             <Typography
                                 variant="subtitle1"
                                 color="initial"
@@ -147,17 +148,15 @@ function Login() {
                                 className='textos1'>
                                 Cadastre-se
                             </Typography>
-                        {/* </Link> */}
-                    </Box>
+                            {/* </Link> */}
+                        </Box>
                     </form>
-                    
+
                 </Box>
             </Grid>
-            <Grid
-                container
-                className='imagem card-login'>
-            </Grid>
-        </Grid>
+        </div>
+
+
     )
 }
 

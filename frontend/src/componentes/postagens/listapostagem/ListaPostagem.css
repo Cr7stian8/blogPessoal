@@ -11,8 +11,8 @@
 }
 /* adc responsivity */
 .card{
-    padding: 2vw;
-    margin: 2vw;
+    padding: 1vw;
+    margin: 1vw; 
     background-color:rgba(124, 118, 118, 0.893);
     box-shadow: 10px 10px;
     width: 30vw;
