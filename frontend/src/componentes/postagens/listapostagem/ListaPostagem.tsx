@@ -58,34 +58,51 @@ function ListaPostagem() {
       <div className='cards'>
         {
           posts.map(post => (
+
             <div className='card'>
+
               {/* Tudo menos botões */}
               <section>
+
                 <article className='desc'>
                   {post.tema?.descricao}
                 </article>
+
                 <article>
                   {post.titulo}
                 </article>
+
                 <article>
                   {post.texto}
                 </article>
+
               </section>
 
               {/* Botões */}
               <CardActions>
-                <Box display="flex" justifyContent="center" mb={1.5}>
+                <Box
+                  display="flex"
+                  justifyContent="center"
+                  mb={1.5}
+                  className='caixaDosBotoes'>
 
                   <Link to={`/formularioPostagem/${post.id}`} className="text-decorator-none" >
                     <Box mx={1}>
-                      <Button variant="contained" className="marginLeft" size='small' color="primary" >
+                      <Button
+                        variant="contained"
+                        className="marginLeft"
+                        size='small'
+                        color="primary">
                         atualizar
                       </Button>
                     </Box>
                   </Link>
                   <Link to={`/deletarPostagem/${post.id}`} className="text-decorator-none">
                     <Box mx={1}>
-                      <Button variant="contained" size='small' color="secondary">
+                      <Button
+                        variant="contained"
+                        size='small'
+                        color="secondary">
                         deletar
                       </Button>
                     </Box>

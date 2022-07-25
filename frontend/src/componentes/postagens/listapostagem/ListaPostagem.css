@@ -17,6 +17,7 @@
     box-shadow: 10px 10px;
     width: 30vw;
     height: 30vh;
+    text-align: center;
 }
 
 @media screen and (max-width:600px) {
