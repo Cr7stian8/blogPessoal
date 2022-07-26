@@ -1,0 +1,141 @@
+@media screen and (min-width: 600px) {
+    .tdn {
+        text-decoration: none;
+    }
+
+    .cursor {
+        cursor: pointer;
+        color: white;
+        padding-right: 1vw;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        background-color: rgb(102, 98, 98);
+    }
+
+
+    /* Estilização computadores */
+    .sair-inicio {
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 25px !important;
+        background-color: red !important;
+    }
+
+    .texto-inicio {
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 25px !important;
+        background-color: rgb(68, 0, 255) !important;
+        box-shadow: 5px 5px black;
+    }
+
+    .a1 {
+        position: relative;
+        animation-name: cair;
+        animation-duration: 1s;
+        animation-fill-mode: both;
+    }
+    .a2 {
+        position: relative;
+        animation-name: cair;
+        animation-duration: 1s;
+        animation-delay: 0.2s;
+        animation-fill-mode: both;
+    }
+    .a3 {
+        position: relative;
+        animation-name: cair;
+        animation-duration: 1s;
+        animation-delay: 0.4s;
+        animation-fill-mode: both;
+    }
+    .a4 {
+        position: relative;
+        animation-name: cair;
+        animation-delay: 0.6s;
+        animation-duration: 1s;
+        animation-fill-mode: both;
+    }
+    .a5 {
+        animation-delay: 0.8s;
+        position: relative;
+        animation-name: cair;
+        animation-duration: 1s;
+        animation-fill-mode: both;
+    }
+
+    @keyframes cair {
+        0% {
+            top: -150px;
+        }
+
+        50% {
+            top: 40px;
+        }
+        100% {
+            top: 0px;
+        }
+    }
+
+    .nav {
+        background-image: url(../../assets/img/fundo-inicio.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        height: 100vh;
+    }
+
+    .wrap {
+        display: flex;
+    }
+
+}
+
+/* Estilização celular */
+@media screen and (max-width: 600px) {
+    .tdn {
+        text-decoration: none;
+    }
+
+    .wrap {
+        flex-direction: column;
+    }
+
+    .nav {
+        background-image: url(../../assets/img/DragonballResultado.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 100vh;
+    }
+
+    .margin10 {
+        margin: 10px;
+    }
+
+    .cursor {
+        text-align: center;
+        color: #161616;
+        margin-bottom: 40px;
+        background-color: white;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    .texto-inicio {
+        font-size: 22px !important;
+        font-weight: bold !important;
+        background-color: white !important;
+    }
+
+    .sair-inicio {
+        background-color: white !important;
+    }
+}
