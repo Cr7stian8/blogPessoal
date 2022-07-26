@@ -1,8 +1,5 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './componentes/estaticos/navbar/Navbar';
-import Footer from './componentes/estaticos/footer/Footer';
-import Home from './paginas/home/Home';
 import Login from './paginas/login/Login';
 import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
 import ListaTema from './componentes/temas/listatema/ListaTema';
@@ -15,17 +12,17 @@ import { Provider } from 'react-redux';
 import store from './store/store';
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import Inicio from './paginas/inicio/Inicio';
 
 function App() {
   return (
     <Provider store={store}>
       <ToastContainer />
       <Router>
-        <Navbar/>
         <div style={{ minHeight: '100vh' }}>
           <Routes>
 
-            <Route path="/home" element={<Home />} />
+            <Route path="/home" element={<Inicio />} />
 
             <Route path="/" element={< Login />} />
 
@@ -51,8 +48,6 @@ function App() {
 
           </Routes>
         </div>
-
-        <Footer />
       </Router>
     </Provider>
   )
