@@ -49,9 +49,9 @@ function Login() {
         try {
             await login(`/usuarios/logar`, userLogin, setToken)
 
-            toast.success('Logado com sucesso, bem vindo', {
+            toast.success('BEM VINDO', {
                 position: "top-center",
-                autoClose: 2000,
+                autoClose: 1500,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: false,

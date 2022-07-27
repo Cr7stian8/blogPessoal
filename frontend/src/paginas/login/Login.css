@@ -1,45 +1,48 @@
 /* Estilização computadores */
-.card-login {
-   border: 1px solid black;
-   padding: 3vw;
-   background-color: rgba(255, 255, 255, 0.685);
-   position: relative;
-   top: 50%;
-   transform: translateY(-50%);
-   width: 400px;
-   margin-left: auto;
-   margin-right: auto;
-}
+@media screen and (min-width:600px) {
+   .card-login {
+      border: 1px solid black;
+      padding: 3vw;
+      background-color: rgba(255, 255, 255, 0.685);
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+   }
 
-.corpo-login {
-   background-image: url(../../assets/img/drEstranho.jpg);
-   background-size: cover;
-   background-position: center;
-   background-repeat: no-repeat;
-   width: 100vw;
-   height: 100vh;
-}
-
-/* Estilização do celular */
-@media screen and (max-width:600px){
    .corpo-login {
-      background-image: url(../../assets/img/DragonballResultado.jpg);
+      background-image: url(../../assets/img/fundo-login.jpg);
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       width: 100vw;
       height: 100vh;
    }
+
+}
+
+/* Estilização do celular */
+@media screen and (max-width:600px) {
+   .corpo-login {
+      background-image: url(../../assets/img/fundo-login-celular.jpg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100vw;
+      height: 100vh;
+   }
+
    .card-login {
-      margin-left: 2vw;
-      margin-right: 2vw;
-      border: 3px solid black;
+      margin-left: 5vw;
+      margin-right: 5vw;
+      border: 1px solid black;
       border-radius: 40px;
-      padding-left: 5vw;
-      padding-right: 5vw;
+      padding: 5vw;
       background-color: rgba(255, 255, 255, 0.582);
       position: relative;
-      top: 40%;
+      top: 50%;
       transform: translateY(-50%);
    }
 }

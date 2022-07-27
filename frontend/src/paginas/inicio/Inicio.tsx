@@ -23,7 +23,7 @@ function Inicio() {
 
     function goLogout() {
         dispatch(addToken(''))
-        toast.info('usuario deslogado', {
+        toast.info('FLWWW !', {
             position: "top-center",
             autoClose: 2000,
             hideProgressBar: false,
@@ -72,9 +72,9 @@ function Inicio() {
                             className="tdn">
                             <Box
                                 mx={1}
-                                className='cursor'>
+                                className='cursor a1'>
                                 <Typography
-                                    className='texto-inicio a1'
+                                    className='texto-inicio'
                                     color="inherit">
                                     postagens
                                 </Typography>
@@ -85,9 +85,9 @@ function Inicio() {
                             className="tdn">
                             <Box
                                 mx={1}
-                                className='cursor'>
+                                className='cursor a2'>
                                 <Typography
-                                    className='texto-inicio a2'
+                                    className='texto-inicio'
                                     color="inherit">
                                     temas
                                 </Typography>
@@ -98,9 +98,9 @@ function Inicio() {
                             className="tdn">
                             <Box
                                 mx={1}
-                                className='cursor'>
+                                className='cursor a3'>
                                 <Typography
-                                    className='texto-inicio a3'>
+                                    className='texto-inicio'>
                                     Novo tema
                                 </Typography>
                             </Box>
@@ -121,11 +121,10 @@ function Inicio() {
                         </Box>
 
                         <Box
-                            mx={1}
-                            className='cursor'
+                            className='cursor a5'
                             onClick={goLogout}>
                             <Typography
-                                className='texto-inicio sair-inicio a5'>
+                                className='texto-inicio sair-inicio'>
                                 sair
                             </Typography>
                         </Box>
