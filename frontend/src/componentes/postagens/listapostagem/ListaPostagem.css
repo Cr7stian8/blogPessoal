@@ -1,41 +1,69 @@
-.text-decorator-none{
-    text-decoration: none;
-}
-
-.cards{
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap;
+.flex {
+    display: flex;
     justify-content: center;
-    min-height: 100vh ;
-}
-/* adc responsivity */
-.card{
-    padding: 1vw;
-    margin: 1vw; 
-    background-color:rgba(124, 118, 118, 0.893);
-    box-shadow: 10px 10px;
-    width: 30vw;
-    height: 30vh;
-    text-align: center;
 }
 
+/* Mobile */
 @media screen and (max-width:600px) {
-    .card{
-        background-color:rgba(124, 118, 118, 0.893);
+    .card {
+        background-color: rgba(124, 118, 118, 0.893);
         box-shadow: 5px 5px;
         width: 80vw;
         height: 30vh;
     }
 }
 
+/* Computador */
+@media screen and (min-width:600px) {
+    .bg-img {
+        background: url(../../../assets/img/fundo-inicio.jpg);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 
-article{
-    color: rgba(255, 255, 255, 0.901);
-    margin-bottom: 20px;
-}
+    .coluna {
+        display: flex;
+        flex-direction: column;
+    }
 
-.desc{
-    font-weight: bold;
-    font-size: 20px;
+    .filtros {
+        width: 20vw;
+        min-height: 100vh;
+    }
+
+    article {
+        color: rgba(255, 255, 255, 0.901);
+        margin-bottom: 20px;
+    }
+
+    .desc {
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .text-decorator-none {
+        text-decoration: none;
+    }
+
+    .cards {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center;
+        flex-wrap: wrap;
+        min-height: 100vh;
+        width: 80vw;
+    }
+
+    .card {
+        padding: 1vw;
+        margin: 10px;
+        background: linear-gradient(rgba(49, 49, 255, 0.63), blue) !important;
+        width: 250px;
+    }
+
+    .header {
+        padding: 20px;
+    }
+
 }
